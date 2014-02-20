@@ -55,7 +55,7 @@ angular.module('colorpicker.module', [])
             }
           },
           {
-            re: /#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/,
+            re: /([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/,
             parse: function (execResult) {
               return [
                 parseInt(execResult[1], 16),
@@ -65,7 +65,7 @@ angular.module('colorpicker.module', [])
             }
           },
           {
-            re: /#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])/,
+            re: /([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])/,
             parse: function (execResult) {
               return [
                 parseInt(execResult[1] + execResult[1], 16),
@@ -179,7 +179,7 @@ angular.module('colorpicker.module', [])
 
         toHex: function (h, s, b, a) {
           var rgb = this.toRGB(h, s, b, a);
-          return '#' + ((1 << 24) | (parseInt(rgb.r, 10) << 16) | (parseInt(rgb.g, 10) << 8) | parseInt(rgb.b, 10)).toString(16).substr(1);
+          return ((1 << 24) | (parseInt(rgb.r, 10) << 16) | (parseInt(rgb.g, 10) << 8) | parseInt(rgb.b, 10)).toString(16).substr(1);
         }
       };
     }])
